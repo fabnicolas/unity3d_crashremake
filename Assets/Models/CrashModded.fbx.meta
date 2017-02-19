@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 757a9176f69908747a3c779ddf8a3d4c
+timeCreated: 1487100395
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: //RootNode
+    100004: Lamp
+    100006: SketchUp
+    100008: SketchUp.001
+    100010: SketchUp.002
+    100012: SketchUp.003
+    100014: SketchUp.004
+    100016: SketchUp.005
+    100018: SketchUp.006
+    100020: SketchUp.007
+    100022: SketchUp.008
+    100024: SketchUp.009
+    100026: SketchUp.010
+    100028: SketchUp.011
+    100030: SketchUp.012
+    100032: SketchUp.013
+    400000: Camera
+    400002: //RootNode
+    400004: Lamp
+    400006: SketchUp
+    400008: SketchUp.001
+    400010: SketchUp.002
+    400012: SketchUp.003
+    400014: SketchUp.004
+    400016: SketchUp.005
+    400018: SketchUp.006
+    400020: SketchUp.007
+    400022: SketchUp.008
+    400024: SketchUp.009
+    400026: SketchUp.010
+    400028: SketchUp.011
+    400030: SketchUp.012
+    400032: SketchUp.013
+    2300000: SketchUp
+    2300002: SketchUp.001
+    2300004: SketchUp.002
+    2300006: SketchUp.003
+    2300008: SketchUp.004
+    2300010: SketchUp.005
+    2300012: SketchUp.006
+    2300014: SketchUp.007
+    2300016: SketchUp.008
+    2300018: SketchUp.009
+    2300020: SketchUp.010
+    2300022: SketchUp.011
+    2300024: SketchUp.012
+    2300026: SketchUp.013
+    3300000: SketchUp
+    3300002: SketchUp.001
+    3300004: SketchUp.002
+    3300006: SketchUp.003
+    3300008: SketchUp.004
+    3300010: SketchUp.005
+    3300012: SketchUp.006
+    3300014: SketchUp.007
+    3300016: SketchUp.008
+    3300018: SketchUp.009
+    3300020: SketchUp.010
+    3300022: SketchUp.011
+    3300024: SketchUp.012
+    3300026: SketchUp.013
+    4300000: SketchUp.013
+    4300002: SketchUp.012
+    4300004: SketchUp.011
+    4300006: SketchUp.010
+    4300008: SketchUp.009
+    4300010: SketchUp.008
+    4300012: SketchUp.007
+    4300014: SketchUp.006
+    4300016: SketchUp.005
+    4300018: SketchUp.004
+    4300020: SketchUp.003
+    4300022: SketchUp.002
+    4300024: SketchUp.001
+    4300026: SketchUp
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

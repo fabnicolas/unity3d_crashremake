@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 0f997cf37b429634482feef68172e875
+timeCreated: 1487096770
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature
+    100004: boca
+    100006: Bone
+    100008: Bone.009
+    100010: Bone.010
+    100012: Bone.022
+    100014: Bone.026
+    100016: Bone.028
+    100018: "bra\xE7o direito 1"
+    100020: "bra\xE7o direito 2"
+    100022: "bra\xE7o esquerdo 1"
+    100024: "bra\xE7o esquerdo 2"
+    100026: "cabe\xE7a"
+    100028: Camera
+    100030: coluna baixo
+    100032: coluna cima
+    100034: crashbandico
+    100036: dedo direito
+    100038: dedo esquerdo
+    100040: fucinho
+    100042: mao direita 1
+    100044: mao direita 2
+    100046: mao esquerda 1
+    100048: mao esquerda 2
+    100050: nariz
+    100052: orelha direita
+    100054: orelha esquerda
+    100056: pe direito
+    100058: pe esquerdo
+    100060: perna direita 1
+    100062: perna direita 2
+    100064: perna esquerda 1
+    100066: perna esquerda 2
+    400000: //RootNode
+    400002: Armature
+    400004: boca
+    400006: Bone
+    400008: Bone.009
+    400010: Bone.010
+    400012: Bone.022
+    400014: Bone.026
+    400016: Bone.028
+    400018: "bra\xE7o direito 1"
+    400020: "bra\xE7o direito 2"
+    400022: "bra\xE7o esquerdo 1"
+    400024: "bra\xE7o esquerdo 2"
+    400026: "cabe\xE7a"
+    400028: Camera
+    400030: coluna baixo
+    400032: coluna cima
+    400034: crashbandico
+    400036: dedo direito
+    400038: dedo esquerdo
+    400040: fucinho
+    400042: mao direita 1
+    400044: mao direita 2
+    400046: mao esquerda 1
+    400048: mao esquerda 2
+    400050: nariz
+    400052: orelha direita
+    400054: orelha esquerda
+    400056: pe direito
+    400058: pe esquerdo
+    400060: perna direita 1
+    400062: perna direita 2
+    400064: perna esquerda 1
+    400066: perna esquerda 2
+    4300000: crashbandico
+    9500000: //RootNode
+    13700000: crashbandico
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
