@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraOrbital : MonoBehaviour {
+public class CameraTPSOrbital : MonoBehaviour {
 
 	private float vertical;
 	private float rotation_speed = 4.0f;

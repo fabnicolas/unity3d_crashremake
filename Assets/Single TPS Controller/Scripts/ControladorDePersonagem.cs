@@ -158,7 +158,7 @@ public class ControladorDePersonagem : MonoBehaviour {
     private void FocoRaycast()
     {
         //RaycastHit hitInfo;
-        Ray cameraRay = camera_player.ViewportPointToRay(centroDaTela);
+        //Ray cameraRay = camera_player.ViewportPointToRay(centroDaTela);
     }
     
     private void MovePersonagem()

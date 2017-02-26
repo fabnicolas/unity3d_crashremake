@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour{
 	public enum PlayerMovementStatus : byte{
-		IDLE = 0,
+        IDLE = 0,
 		WALKING = 1,
 		RUNNING = 2,
 		WALKING_BACK = 3,
@@ -11,167 +10,70 @@ public class PlayerController : MonoBehaviour {
 		WALKING_LEFT = 5
 	}
 
-	//This variable indicates how is the current state of character.
-	private PlayerMovementStatus status;
+    private PlayerMovementStatus movement_status;
+    private Animator _animator;
 
-	//This variable indicates if the player is aiming or not.
-	private bool is_aiming; 
+    private Vector3 movement_vector;
 
-	//Define the turning speed.
-	private float rotation_speed = 4.0f;
+    private float horizontal;
+    
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        /*
+        // Set player position to the center of the screen.
 
-
-	private float horizontal;
-
-	//private Animator animator;
-	private Vector3 position_player; // centroDaTela
-	private CursorLockMode mouseTrancado;
-
-
-	public bool block_controls;
-
-	//Get the camera properties.
-	public Camera camera_player; 
-
-	void Start ()
-	{
-		position_player.x = 0.5f;
+        position_player.x = 0.5f;
 		position_player.y = 0.5f;
 		position_player.z = 0f;
-		//animator = GetComponentInChildren<Animator>();
-		status = PlayerMovementStatus.IDLE;
-		is_aiming = false;
-		block_controls = false;
-		horizontal = transform.eulerAngles.y;
-	}
+        */
+        _animator=this.GetComponent<Animator>(); // Gets the animator to the attached GO.
+        horizontal = transform.eulerAngles.y;
+    }
 
-	void Update ()
-	{
-		//FocoRaycast();
-		if (block_controls == false)
-		{
-			Cursor.lockState = CursorLockMode.Locked;
-			Cursor.visible = false;
-			Controle();
-		}
-		moveCharacter();
-		//animateCharacter();
-		FocoCamera();
-	}
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        //movement_vector = Vector3.zero;
+        if(Input.GetKey("w")){
+            movement_vector.z = 5.0f;    // Go up.
+        }
+        if(Input.GetKey("a")){
+            movement_vector.x = -5.0f;    // Go left.
+        }
+        if(Input.GetKey("s")){
+            movement_vector.z = -5.0f;    // Go down.
+        }
+        if(Input.GetKey("d")){
+            movement_vector.x = 5.0f;    // Go right.
+        }
+        if(Input.GetKey("i")){
+            _animator.SetBool("isIdle", false);
+        }else if(Input.GetKey("o")){
+            _animator.SetBool("isIdle", true);
+        }
+    }
 
-	private void animateCharacter()
-	{
-		//animator.SetInteger("Status", (int)status);
-	}
-
-	private void Controle()
-	{
-		if (Input.GetKeyDown("w"))
-		{
-			status = PlayerMovementStatus.WALKING;
-		}
-		if (Input.GetKeyUp("w") && status == PlayerMovementStatus.WALKING)
-		{
-			status = PlayerMovementStatus.IDLE;
-			if (Input.GetKey("s")) { status = PlayerMovementStatus.WALKING_BACK; }
-			if (Input.GetKey("a")) { status = PlayerMovementStatus.WALKING_LEFT; }
-			if (Input.GetKey("d")) { status = PlayerMovementStatus.WALKING_RIGHT; }
-		}
-		if (Input.GetKeyUp("w") && status == PlayerMovementStatus.RUNNING)
-		{
-			status = PlayerMovementStatus.IDLE;
-		}
-
-		if (Input.GetKeyDown(KeyCode.LeftShift) && status == PlayerMovementStatus.WALKING)
-		{
-			status = PlayerMovementStatus.RUNNING;
-			if (is_aiming == true){
-				is_aiming = false;
-			}
-		}
-		if (Input.GetKeyUp(KeyCode.LeftShift) && status == PlayerMovementStatus.RUNNING) { status = PlayerMovementStatus.WALKING; }
-
-		if (Input.GetKeyDown("s"))
-		{
-			status = PlayerMovementStatus.WALKING_BACK;
-		}
-		if (Input.GetKeyUp("s") && status == PlayerMovementStatus.WALKING_BACK)
-		{
-			status = PlayerMovementStatus.IDLE;
-			if (Input.GetKey("a")) { status = PlayerMovementStatus.WALKING_LEFT; }
-			if (Input.GetKey("d")) { status = PlayerMovementStatus.WALKING_RIGHT; }
-			if (Input.GetKey("w")) { status = PlayerMovementStatus.WALKING; }
-		}
-
-		if (Input.GetKeyDown("d"))
-		{
-			status = PlayerMovementStatus.WALKING_RIGHT;
-		}
-		if (Input.GetKeyUp("d") && status == PlayerMovementStatus.WALKING_RIGHT)
-		{
-			status = PlayerMovementStatus.IDLE;
-			if (Input.GetKey("s")) { status = PlayerMovementStatus.WALKING_BACK; }
-			if (Input.GetKey("a")) { status = PlayerMovementStatus.WALKING_LEFT; }
-			if (Input.GetKey("w")) { status = PlayerMovementStatus.WALKING; }
-
-		}
-
-		if (Input.GetKeyDown("a"))
-		{
-			status = PlayerMovementStatus.WALKING_LEFT;
-		}
-		if (Input.GetKeyUp("a") && status == PlayerMovementStatus.WALKING_LEFT)
-		{
-			status = PlayerMovementStatus.IDLE;
-			if (Input.GetKey("s")) { status = PlayerMovementStatus.WALKING_BACK; }
-			if (Input.GetKey("d")) { status = PlayerMovementStatus.WALKING_RIGHT; }
-			if (Input.GetKey("w")) { status = PlayerMovementStatus.WALKING; }
-		}
-
-		if (Input.GetKeyDown(KeyCode.Mouse1))
-		{
-			is_aiming = true;
-			if (status == PlayerMovementStatus.RUNNING)
-			{
-				status = PlayerMovementStatus.WALKING;
-			}
-		}
-		if (Input.GetKeyUp(KeyCode.Mouse1)) { is_aiming = false; }
-	}
-
-	private void FocoCamera()
-	{
-		if (is_aiming && camera_player.fieldOfView > 37)
-		{
-			camera_player.fieldOfView = camera_player.fieldOfView - 65.0f * Time.deltaTime;
-		}
-		if (!is_aiming && camera_player.fieldOfView < 60)
-		{
-			camera_player.fieldOfView = camera_player.fieldOfView + 65.0f * Time.deltaTime;
-		}
-	}
-
-	/*private void FocoRaycast()
-	{
-		RaycastHit hitInfo;
-		Ray cameraRay = camera_player.ViewportPointToRay(position_player);
-	}*/
-
-	private void moveCharacter(){
-		var mouseHorizontal = Input.GetAxis("Mouse X");
-		horizontal = (horizontal + rotation_speed * mouseHorizontal) % 360f;
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void FixedUpdate()
+    {
+        float mouseHorizontal = Input.GetAxis("Mouse X");
+		horizontal = (horizontal + 0.4f * mouseHorizontal) % 360f;
 		transform.rotation = Quaternion.AngleAxis(horizontal, Vector3.up); // Handles mouse X orientation
+        
+        Debug.Log("mv="+movement_vector);
+        if(movement_vector != Vector3.zero)
+            transform.Translate((movement_vector=movement_vector*Time.deltaTime));
+        else
+            transform.Translate(0,0,0);
+    }
 
-		if (status == PlayerMovementStatus.IDLE) 			{ transform.Translate(0, 0, 0); }
-		if (status == PlayerMovementStatus.WALKING) 		{ transform.Translate(0, 0, 1.0f * Time.deltaTime); }
-		if (status == PlayerMovementStatus.RUNNING) 		{ transform.Translate(0, 0, 5.0f * Time.deltaTime); }
-		if (status == PlayerMovementStatus.WALKING_BACK) 	{ transform.Translate(0, 0, -1.0f * Time.deltaTime); }
-		if (status == PlayerMovementStatus.WALKING_RIGHT) 	{ transform.Translate(1.0f * Time.deltaTime, 0, 0); }
-		if (status == PlayerMovementStatus.WALKING_LEFT) 	{ transform.Translate(-1.0f * Time.deltaTime, 0, 0); }
-	}
 
-	public bool Retornais_aiming()
-	{
-		return is_aiming;
-	}
 }
