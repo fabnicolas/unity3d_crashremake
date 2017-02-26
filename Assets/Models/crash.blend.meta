@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: a07a15edcda0edf4198cdb8f0d3732e8
+timeCreated: 1488105138
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Back
+    100004: base
+    100006: BodySketch
+    100008: collar_l
+    100010: collar_r
+    100012: //RootNode
+    100014: ears_l
+    100016: ears_r
+    100018: EyebrowDX
+    100020: EyebrowSX
+    100022: EyeDX
+    100024: EyeLineDX
+    100026: EyeLineSX
+    100028: EyeSX
+    100030: foot_l
+    100032: foot_r
+    100034: FootDX
+    100036: FootDXUpper
+    100038: FootSX
+    100040: FootSXUpper
+    100042: head
+    100044: ikleg_r
+    100046: inch_l
+    100048: inch_r
+    100050: knee_r
+    100052: lowerarm_l
+    100054: lowerarm_r
+    100056: lowerleg2_l
+    100058: lowerleg2_r
+    100060: lowerleg_l
+    100062: lowerleg_r
+    100064: Mouth
+    100066: neck
+    100068: palm_l
+    100070: palm_r
+    100072: pelvis
+    100074: pelvis_down_l
+    100076: pelvis_down_r
+    100078: root
+    100080: SketchUp_008
+    100082: stomach
+    100084: thigh_l
+    100086: thigh_r
+    100088: upper_head
+    100090: upperarm_l
+    100092: upperarm_r
+    100094: wholehand_l
+    100096: wholehand_r
+    400000: Armature
+    400002: Back
+    400004: base
+    400006: BodySketch
+    400008: collar_l
+    400010: collar_r
+    400012: //RootNode
+    400014: ears_l
+    400016: ears_r
+    400018: EyebrowDX
+    400020: EyebrowSX
+    400022: EyeDX
+    400024: EyeLineDX
+    400026: EyeLineSX
+    400028: EyeSX
+    400030: foot_l
+    400032: foot_r
+    400034: FootDX
+    400036: FootDXUpper
+    400038: FootSX
+    400040: FootSXUpper
+    400042: head
+    400044: ikleg_r
+    400046: inch_l
+    400048: inch_r
+    400050: knee_r
+    400052: lowerarm_l
+    400054: lowerarm_r
+    400056: lowerleg2_l
+    400058: lowerleg2_r
+    400060: lowerleg_l
+    400062: lowerleg_r
+    400064: Mouth
+    400066: neck
+    400068: palm_l
+    400070: palm_r
+    400072: pelvis
+    400074: pelvis_down_l
+    400076: pelvis_down_r
+    400078: root
+    400080: SketchUp_008
+    400082: stomach
+    400084: thigh_l
+    400086: thigh_r
+    400088: upper_head
+    400090: upperarm_l
+    400092: upperarm_r
+    400094: wholehand_l
+    400096: wholehand_r
+    4300000: FootSX
+    4300002: FootSXUpper
+    4300004: EyeLineSX
+    4300006: EyebrowDX
+    4300008: EyebrowSX
+    4300010: SketchUp_008
+    4300012: EyeLineDX
+    4300014: EyeDX
+    4300016: FootDX
+    4300018: Mouth
+    4300020: Back
+    4300022: EyeSX
+    4300024: FootDXUpper
+    4300026: BodySketch
+    7400000: Default Take
+    7400002: crash_animation_idle
+    7400004: crash_prego
+    7400006: crash_prego_001
+    7400008: crash_prego_002
+    7400010: crash_walk_dx
+    9500000: //RootNode
+    13700000: Back
+    13700002: BodySketch
+    13700004: EyebrowDX
+    13700006: EyebrowSX
+    13700008: EyeDX
+    13700010: EyeLineDX
+    13700012: EyeLineSX
+    13700014: EyeSX
+    13700016: FootDX
+    13700018: FootDXUpper
+    13700020: FootSX
+    13700022: FootSXUpper
+    13700024: Mouth
+    13700026: SketchUp_008
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
