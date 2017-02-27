@@ -4,20 +4,18 @@ using System.Collections;
 public class PlayerController : MonoBehaviour{
     // Still not used, work in progress...
 	public enum PlayerMovementStatus : byte{
-        IDLE = 0,
-		WALKING = 1,
-		RUNNING = 2,
-		WALKING_BACK = 3,
-		WALKING_RIGHT = 4,
-		WALKING_LEFT = 5
+        STAND = 0,
+        IDLE = 1,
+		WALKING = 2
 	}
 
     private PlayerMovementStatus movement_status;   // Work in progress...
-    private Animator _animator;    // For animations.
+    private Animator _animator;    // Used for animations.
 
-    private Vector3 movement_vector;    // For movements. Idle: (0,0,0).
+    private Vector3 movement_vector;    // Used for movements. Idle: (0,0,0).
 
-    private float horizontal;   // Horizontal rotation for mouse look.
+    public float movement_speed = 5.0f; // Used for movements. Affects whole character speed.
+    private float rotation_angle;
     
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -30,15 +28,14 @@ public class PlayerController : MonoBehaviour{
 		position_player.y = 0.5f;
 		position_player.z = 0f;
         */
+        rotation_angle = Vector3.Angle(Vector3.forward, transform.forward);
         _animator=this.GetComponent<Animator>(); // Gets the animator from the attached GO.
-        horizontal = transform.eulerAngles.y;    // Sets rotation from the actual focus-rotation of the player based on Y axis.
         isMovementCoroutineRunning=false;        // Sets running=false to enable movement coroutine calls.
     }
 
     /// Update is called every frame, if the MonoBehaviour is enabled.
     void Update()
     {
-        //movement_vector = Vector3.zero;
         if(Input.GetKey("w")){
             movement_vector.z = 5.0f;    // Go up.
         }
@@ -61,12 +58,11 @@ public class PlayerController : MonoBehaviour{
     /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
     void FixedUpdate()
     {
-        float mouseHorizontal = Input.GetAxis("Mouse X");
-		horizontal = (horizontal + 4f * mouseHorizontal) % 360f;
-		transform.rotation = Quaternion.AngleAxis(horizontal, Vector3.up); // Handles mouse X orientation
-        
-        if(movement_vector!=Vector3.zero && !isMovementCoroutineRunning){
-            StartCoroutine(executeMovement()); // Delegate movement to 'async' coroutine function to save performance.
+        if(movement_vector != Vector3.zero){ // If movement vector isn't null...
+            rotation_angle=Mathf.Atan2 (movement_vector.x, movement_vector.z) * Mathf.Rad2Deg; // Calculate angle rotation for player (in degrees).
+            if(!isMovementCoroutineRunning){
+                StartCoroutine(executeMovement()); // Delegate movement to 'async' coroutine function to save performance.
+            }
         }
     }
 
@@ -76,16 +72,24 @@ public class PlayerController : MonoBehaviour{
     */
     private bool isMovementCoroutineRunning; // This value estabilishes if coroutine is already called.
     IEnumerator executeMovement(){
-        // Coroutine started running, so the movement vector is != (0,0,0). 'Callback' through setting bool to true.
+        // Coroutine started running, so the movement vector is != (0,0,0). Let's warn that this coroutine can't be runned twice.
         isMovementCoroutineRunning=true;
+
+        // Notify animator that the character started moving.
+        _animator.SetBool("isMoving", true);
 
         // Until the movement vector is not (0,0,0), execute the movement each FixedUpdate frame.
         while(movement_vector != Vector3.zero){
-            transform.Translate((movement_vector=movement_vector*Time.deltaTime));  // Make movement and reduce movement_vector on deltaTime.
-            yield return CoRoutineWaitBuilder.getInstance().m_WaitForFixedUpdate;   // Wait next frame elaboration.
+            transform.position+=((movement_vector=movement_vector*Time.deltaTime));  // Make movement and reduce movement_vector on deltaTime.
+            transform.eulerAngles=new Vector3(transform.eulerAngles.x, rotation_angle, transform.eulerAngles.z); // Make angle-based rotation.
+            
+            yield return CoRoutineWaitBuilder.getInstance().m_WaitForFixedUpdate;   // Wait for next frame elaboration.
         }
+        
+        // Notify animator that the character stopped moving.
+        _animator.SetBool("isMoving", false);
 
-        // Character speed is zero. Coroutine is already going to die. Let's 'callback' through setting bool to false.
+        // Character speed is zero. Coroutine is already going to die. Let's warn that this coroutine can be runned again.
         isMovementCoroutineRunning=false;
     }
 

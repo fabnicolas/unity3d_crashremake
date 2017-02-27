@@ -158,7 +158,763 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/base
+        weight: 1
+      - path: Armature/root/base/pelvis
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l/foot_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r/foot_r
+        weight: 1
+      - path: Armature/root/base/stomach
+        weight: 1
+      - path: Armature/root/base/stomach/neck
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/inch_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/wholehand_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/inch_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/wholehand_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/upper_head
+        weight: 1
+      - path: Armature/root/ikleg_r
+        weight: 1
+      - path: Armature/root/ikleg_r/knee_r
+        weight: 1
+      - path: Back
+        weight: 1
+      - path: BodySketch
+        weight: 1
+      - path: EyebrowDX
+        weight: 1
+      - path: EyebrowSX
+        weight: 1
+      - path: EyeDX
+        weight: 1
+      - path: EyeLineDX
+        weight: 1
+      - path: EyeLineSX
+        weight: 1
+      - path: EyeSX
+        weight: 1
+      - path: FootDX
+        weight: 1
+      - path: FootDXUpper
+        weight: 1
+      - path: FootSX
+        weight: 1
+      - path: FootSXUpper
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: SketchUp_008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: crash_animation_idle
+      takeName: crash_animation_idle
+      firstFrame: 0
+      lastFrame: 66
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/base
+        weight: 1
+      - path: Armature/root/base/pelvis
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l/foot_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r/foot_r
+        weight: 1
+      - path: Armature/root/base/stomach
+        weight: 1
+      - path: Armature/root/base/stomach/neck
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/inch_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/wholehand_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/inch_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/wholehand_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/upper_head
+        weight: 1
+      - path: Armature/root/ikleg_r
+        weight: 1
+      - path: Armature/root/ikleg_r/knee_r
+        weight: 1
+      - path: Back
+        weight: 1
+      - path: BodySketch
+        weight: 1
+      - path: EyebrowDX
+        weight: 1
+      - path: EyebrowSX
+        weight: 1
+      - path: EyeDX
+        weight: 1
+      - path: EyeLineDX
+        weight: 1
+      - path: EyeLineSX
+        weight: 1
+      - path: EyeSX
+        weight: 1
+      - path: FootDX
+        weight: 1
+      - path: FootDXUpper
+        weight: 1
+      - path: FootSX
+        weight: 1
+      - path: FootSXUpper
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: SketchUp_008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: crash_prego
+      takeName: crash_prego
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/base
+        weight: 1
+      - path: Armature/root/base/pelvis
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l/foot_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r/foot_r
+        weight: 1
+      - path: Armature/root/base/stomach
+        weight: 1
+      - path: Armature/root/base/stomach/neck
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/inch_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/wholehand_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/inch_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/wholehand_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/upper_head
+        weight: 1
+      - path: Armature/root/ikleg_r
+        weight: 1
+      - path: Armature/root/ikleg_r/knee_r
+        weight: 1
+      - path: Back
+        weight: 1
+      - path: BodySketch
+        weight: 1
+      - path: EyebrowDX
+        weight: 1
+      - path: EyebrowSX
+        weight: 1
+      - path: EyeDX
+        weight: 1
+      - path: EyeLineDX
+        weight: 1
+      - path: EyeLineSX
+        weight: 1
+      - path: EyeSX
+        weight: 1
+      - path: FootDX
+        weight: 1
+      - path: FootDXUpper
+        weight: 1
+      - path: FootSX
+        weight: 1
+      - path: FootSXUpper
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: SketchUp_008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: crash_prego_001
+      takeName: crash_prego_001
+      firstFrame: 0
+      lastFrame: 66
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/base
+        weight: 1
+      - path: Armature/root/base/pelvis
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l/foot_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r/foot_r
+        weight: 1
+      - path: Armature/root/base/stomach
+        weight: 1
+      - path: Armature/root/base/stomach/neck
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/inch_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/wholehand_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/inch_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/wholehand_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/upper_head
+        weight: 1
+      - path: Armature/root/ikleg_r
+        weight: 1
+      - path: Armature/root/ikleg_r/knee_r
+        weight: 1
+      - path: Back
+        weight: 1
+      - path: BodySketch
+        weight: 1
+      - path: EyebrowDX
+        weight: 1
+      - path: EyebrowSX
+        weight: 1
+      - path: EyeDX
+        weight: 1
+      - path: EyeLineDX
+        weight: 1
+      - path: EyeLineSX
+        weight: 1
+      - path: EyeSX
+        weight: 1
+      - path: FootDX
+        weight: 1
+      - path: FootDXUpper
+        weight: 1
+      - path: FootSX
+        weight: 1
+      - path: FootSXUpper
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: SketchUp_008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: crash_prego_002
+      takeName: crash_prego_002
+      firstFrame: 0
+      lastFrame: 66
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/base
+        weight: 1
+      - path: Armature/root/base/pelvis
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l/foot_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r/foot_r
+        weight: 1
+      - path: Armature/root/base/stomach
+        weight: 1
+      - path: Armature/root/base/stomach/neck
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/inch_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/wholehand_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/inch_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/wholehand_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/upper_head
+        weight: 1
+      - path: Armature/root/ikleg_r
+        weight: 1
+      - path: Armature/root/ikleg_r/knee_r
+        weight: 1
+      - path: Back
+        weight: 1
+      - path: BodySketch
+        weight: 1
+      - path: EyebrowDX
+        weight: 1
+      - path: EyebrowSX
+        weight: 1
+      - path: EyeDX
+        weight: 1
+      - path: EyeLineDX
+        weight: 1
+      - path: EyeLineSX
+        weight: 1
+      - path: EyeSX
+        weight: 1
+      - path: FootDX
+        weight: 1
+      - path: FootDXUpper
+        weight: 1
+      - path: FootSX
+        weight: 1
+      - path: FootSXUpper
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: SketchUp_008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: crash_walk_dx
+      takeName: crash_walk_dx
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/base
+        weight: 1
+      - path: Armature/root/base/pelvis
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_l/thigh_l/lowerleg_l/lowerleg2_l/foot_l
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r
+        weight: 1
+      - path: Armature/root/base/pelvis/pelvis_down_r/thigh_r/lowerleg_r/lowerleg2_r/foot_r
+        weight: 1
+      - path: Armature/root/base/stomach
+        weight: 1
+      - path: Armature/root/base/stomach/neck
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/inch_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_l/upperarm_l/lowerarm_l/palm_l/wholehand_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/inch_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/collar_r/upperarm_r/lowerarm_r/palm_r/wholehand_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_l
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/ears_r
+        weight: 1
+      - path: Armature/root/base/stomach/neck/head/upper_head
+        weight: 1
+      - path: Armature/root/ikleg_r
+        weight: 1
+      - path: Armature/root/ikleg_r/knee_r
+        weight: 1
+      - path: Back
+        weight: 1
+      - path: BodySketch
+        weight: 1
+      - path: EyebrowDX
+        weight: 1
+      - path: EyebrowSX
+        weight: 1
+      - path: EyeDX
+        weight: 1
+      - path: EyeLineDX
+        weight: 1
+      - path: EyeLineSX
+        weight: 1
+      - path: EyeSX
+        weight: 1
+      - path: FootDX
+        weight: 1
+      - path: FootDXUpper
+        weight: 1
+      - path: FootSX
+        weight: 1
+      - path: FootSXUpper
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: SketchUp_008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

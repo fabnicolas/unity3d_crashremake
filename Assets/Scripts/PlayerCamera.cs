@@ -1,17 +1,24 @@
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour{
-    public Transform player_transform;
+    public Transform target_transform;
+	private float vertical;
+	private float rotation_speed = 4.0f;
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-         float x = player_transform.position.x;
-         float y = player_transform.position.y + 2; // +2: camera a bit heigher than the character. Or -2, depends on from which side you want to look.
-         float z = player_transform.position.z + 5; // +5: distance between character and camera
-         transform.position = new Vector3(x,y,z);
-         transform.rotation = new Quaternion(0,180,0,0); // rotate around y-Axis to look down
-    }
+    private Vector3 camera_offset;
+	void Start ()
+	{
+		vertical = transform.eulerAngles.x;
+        camera_offset = transform.position;
+	}
+
+	void Update ()
+	{
+        transform.position = target_transform.position+camera_offset;
+
+		float mouseVertical = Input.GetAxis("Mouse Y");
+		vertical = (vertical - rotation_speed * mouseVertical) % 360f;
+		vertical = Mathf.Clamp(vertical, -5, 20);
+		transform.localRotation = Quaternion.AngleAxis(vertical, Vector3.right);
+	}
 }
