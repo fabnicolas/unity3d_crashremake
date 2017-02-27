@@ -34,3 +34,4 @@ sysinfo.txt
 
 # Exclude unwanted files in nopublish directories
 __nopublish/
+__nopublish.meta
