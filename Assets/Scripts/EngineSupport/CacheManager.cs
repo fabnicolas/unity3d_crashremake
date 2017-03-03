@@ -9,6 +9,11 @@
 
     It uses Singleton and Adapter pattern, plus locking mechanism for thread-safe use.
 
+    Usage:
+    CacheManager<GameObject> x = CacheManager<GameObject>.getInstance();
+    x.Add("go_player_groundcheck",this.transform.FindChild("GroundCheck").gameObject);
+    Debug.Log("cached: "+x.Get("go_player_groundcheck").name);
+
  */
 public class CacheManager<V>
 {
@@ -16,12 +21,12 @@ public class CacheManager<V>
     private object lock_op; // Lock for concurrency.
 
     // Singleton pattern.
-    public static class SingletonLoader
+    private static class SingletonLoader
     {
         public static readonly CacheManager<V> instance = new CacheManager<V>();
     }
 
-    public CacheManager<V> getInstance()
+    public static CacheManager<V> getInstance()
     {
         return SingletonLoader.instance;
     }

@@ -30,8 +30,8 @@ public class ThreadsafeDictionary<K, V>
     {
         lock (lock_op)
         {
-            if (cache_dictionary.ContainsKey(key) && force_rewrite)  // If key is present and it needs to be overwritten...
-                cache_dictionary[key] = value;   // Rewrite it!
+            if (!cache_dictionary.ContainsKey(key) || force_rewrite)    // If key is present and force_rewrite, or key isn't present...
+                cache_dictionary[key] = value;   // Write the value!
         }
     }
 

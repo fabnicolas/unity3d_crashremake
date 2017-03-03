@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movement_vector;    // Used for movements. Idle: (0,0,0).
 
     public float movement_speed = 5.0f; // Used for movements. Affects whole character speed.
+    public float jump_factor = 20.0f;
     private float rotation_angle;
 
 
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
         // At beginning you should not run idle animation, so we consider player as if he already did a movement.
         timestamp_last_movement = Time.time;
+
+        // Find GroundCheck object, child of character, and cache it for faster access
+        CacheManager<GameObject>.getInstance().Add("go_player_groundcheck",this.transform.FindChild("GroundCheck").gameObject);
     }
 
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -65,9 +69,11 @@ public class PlayerController : MonoBehaviour
         {
             movement_vector.x = movement_speed * 1.0f;    // Go right.
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            _rigidbody.AddForce(Vector3.up * 2.0f, ForceMode.Impulse);
+            _rigidbody.AddForce(Vector3.up * jump_factor, ForceMode.Impulse);
+            timestamp_last_movement = Time.time;
+            _animator.SetBool("isIdle", false);
         }
     }
 
@@ -164,14 +170,23 @@ public class PlayerController : MonoBehaviour
 
     public void handleCollision(Collision collision, string who = "default")
     {
-        Debug.Log("Collider=" + collision.contacts[0].thisCollider.gameObject.name);
         if (who.Equals("default")) who = transform.name;
-        if (LayerMask.LayerToName(collision.collider.gameObject.layer).Equals("Box"))
-        {
+
+        int layer_thisCollider=collision.contacts[0].thisCollider.gameObject.layer;
+        if(layer_thisCollider==LayerMask.NameToLayer("PlayerBodyParts")){
+            if(collision.contacts[0].thisCollider.name.Equals("GroundCheck")){
+                Debug.Log("GroundCheck");
+            }else{
+                Debug.Log("PlayerBodyParts");
+            }
+        }else if(layer_thisCollider==LayerMask.NameToLayer("Box")){
+            Debug.Log("Box");
+        }else{
             //Destroy(collision.collider.gameObject);
+            Debug.Log("Others");
         }
 
-        Debug.Log(collision.transform.name.ToString() + "," + who);
+        Debug.Log("...called with: "+collision.transform.name.ToString() + "," + who);
     }
 
 }
