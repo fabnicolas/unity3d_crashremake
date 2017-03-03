@@ -176,6 +176,13 @@ public class PlayerController : MonoBehaviour
         if(layer_thisCollider==LayerMask.NameToLayer("PlayerBodyParts")){
             if(collision.contacts[0].thisCollider.name.Equals("GroundCheck")){
                 Debug.Log("GroundCheck");
+                if(LayerMask.LayerToName(collision.contacts[0].otherCollider.gameObject.layer).Equals("BoxParts")){
+                    Debug.Log(collision.contacts[0].otherCollider.gameObject.tag);
+                    if(collision.contacts[0].otherCollider.gameObject.tag.Equals("box_top")){
+                        Destroy(collision.collider.gameObject.transform.parent.gameObject);
+                        _rigidbody.AddForce(Vector3.up * jump_factor, ForceMode.Impulse);
+                    }
+                }
             }else{
                 Debug.Log("PlayerBodyParts");
             }
@@ -183,7 +190,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Box");
         }else{
             //Destroy(collision.collider.gameObject);
-            Debug.Log("Others");
+            Debug.Log("Others: "+LayerMask.LayerToName(layer_thisCollider));
         }
 
         Debug.Log("...called with: "+collision.transform.name.ToString() + "," + who);
