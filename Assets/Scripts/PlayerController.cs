@@ -1,16 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
+// Still not used, work in progress...
+public enum PlayerMovementStatus : byte
+{
+    STAND = 0,
+    IDLE = 1,
+    WALKING = 2
+}
+
+
 public class PlayerController : MonoBehaviour
 {
-    // Still not used, work in progress...
-    public enum PlayerMovementStatus : byte
-    {
-        STAND = 0,
-        IDLE = 1,
-        WALKING = 2
-    }
-
     private PlayerMovementStatus movement_status;   // Work in progress...
     private Animator _animator;    // Used for animations.
     private Rigidbody _rigidbody;   // Used for movements.
@@ -177,7 +178,6 @@ public class PlayerController : MonoBehaviour
             if(collision.contacts[0].thisCollider.name.Equals("GroundCheck")){
                 Debug.Log("GroundCheck");
                 if(LayerMask.LayerToName(collision.contacts[0].otherCollider.gameObject.layer).Equals("BoxParts")){
-                    Debug.Log(collision.contacts[0].otherCollider.gameObject.tag);
                     if(collision.contacts[0].otherCollider.gameObject.tag.Equals("box_top")){
                         Destroy(collision.collider.gameObject.transform.parent.gameObject);
                         _rigidbody.AddForce(Vector3.up * jump_factor, ForceMode.Impulse);
