@@ -43,6 +43,7 @@ public class GameManager
     public SceneList active_scene;  // Estabilishes which active scene is currently on quickly.
 	public ThreadsafeDictionary<SceneList,string> scenes_strings;
     public SceneList scene_in_loading_stage;
+    public ThreadsafeDictionary<string,Texture> textures;
 
 
     private GUIStyle gui_style;     // GUI graphical properties.
@@ -86,8 +87,8 @@ public class GameManager
             GameOverMenu
         };
         scenes_strings = new ThreadsafeDictionary<SceneList,string>()
-            .AddChain(SceneList.MENU, "scene_preload")
-            .AddChain(SceneList.LEVEL1, "scene1");
+            .chained_Add(SceneList.MENU, "scene_preload")
+            .chained_Add(SceneList.LEVEL1, "scene1");
         m_Settings = Settings.getInstance(); // Initialize settings object if not present and save reference to it.
 
         Debug.Log("GameManager in creazione...");
@@ -183,6 +184,7 @@ public class GameManager
         }
         else if (active_scene == SceneList.LEVEL1)
         {
+            GUIHelper.drawTextureFullSize(new Vector2(0,0), textures.Get("texture_wumpa"));
             GUI.Label(new Rect(100, Screen.height-20, 100, 100), "SAMPLE TEXT", gui_style);
         }
     }

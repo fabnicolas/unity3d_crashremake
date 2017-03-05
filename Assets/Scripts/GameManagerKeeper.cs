@@ -2,6 +2,12 @@
 
 public class GameManagerKeeper : MonoBehaviour {
 	private GameManager GM;
+	
+	[System.Serializable]
+	public class TextureField : InspectorField<string,Texture>{}
+
+    [SerializeField]
+    public TextureField[] texture_list;
 
 	/*public AudioClip MusicSound,ClickSound;
 	public Texture background,blackbg;
@@ -28,7 +34,10 @@ public class GameManagerKeeper : MonoBehaviour {
 		GM.m_MusicSource.Play ();
 		*/
 
+		ThreadsafeDictionary<string,Texture> a = new ThreadsafeDictionary<string,Texture>();
+		foreach(int i in texture_list){
 
+		}
 		GM.active_scene = SceneList.MENU;
 		GM.ActiveMenu = MenuTypes.MENU_MAIN;
 	}
