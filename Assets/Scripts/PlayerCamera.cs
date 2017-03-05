@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour
     private float rotation_speed = 4.0f;
 
     private Vector3 camera_offset;
+    
     void Start()
     {
         vertical = transform.eulerAngles.x;

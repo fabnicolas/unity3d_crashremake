@@ -156,7 +156,7 @@ public class GameManager
     private void GameOverMenu(int id) { }
 
     const int Width = 300, Height = 100;
-    public void OnGUI()
+    public void call_onGUI()
     {
 		
         if (active_scene == SceneList.MENU)

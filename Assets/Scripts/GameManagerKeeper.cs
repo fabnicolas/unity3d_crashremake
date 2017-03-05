@@ -36,7 +36,7 @@ public class GameManagerKeeper : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if(GM!=null) GM.OnGUI();
+		if(GM!=null) GM.call_onGUI();
 	}
 
 }
