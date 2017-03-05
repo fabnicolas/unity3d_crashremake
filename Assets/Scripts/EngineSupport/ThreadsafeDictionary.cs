@@ -58,4 +58,20 @@ public class ThreadsafeDictionary<K, V>
         }
     }
 
+    /*
+        Chainable add method.
+     */
+    public ThreadsafeDictionary<K, V> AddChain(K key, V value, bool force_rewrite = false)
+    {
+        this.Add(key, value, force_rewrite);
+        return this;
+    }
+
+    /*
+        Chainable remove method.
+     */
+    public ThreadsafeDictionary<K, V> RemoveChain(K key){
+        this.Remove(key);
+        return this;
+    }
 }
