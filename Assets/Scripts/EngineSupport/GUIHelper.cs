@@ -9,4 +9,8 @@ public class GUIHelper{
     {
         return GUI.skin.label.CalcSize(new GUIContent(str));
     }
+
+    public static void drawTextureFullSize(Vector2 position, Texture texture){
+        GUI.DrawTexture(new Rect(position.x, position.y, texture.width, texture.height), texture);
+    }
 }
