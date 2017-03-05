@@ -145,9 +145,8 @@ public class PlayerController : MonoBehaviour
         // Disable extra coroutine calls.
         isProgressiveChangeRotationCoroutineRunning = true;
 
-        bool idleStatus;
         float t = 0.0f; // We start from time 0.
-        while (t < time && (!(idleStatus = _animator.GetBool("isIdle"))))
+        while (t < time && (!(_animator.GetBool("isIdle"))))
         {
             t += Time.deltaTime;    // Framerate-indipendent cycle.
             this.changeRotation(Mathf.Lerp(0, rotation_y, t / time) % 360.0f); // Smooth rotation through lerping with deltaTime.

@@ -2,7 +2,6 @@
 
 public class GameManagerKeeper : MonoBehaviour {
 	private GameManager GM;
-	public string scene_level1;
 
 	/*public AudioClip MusicSound,ClickSound;
 	public Texture background,blackbg;
@@ -32,7 +31,6 @@ public class GameManagerKeeper : MonoBehaviour {
 
 		GM.active_scene = SceneList.MENU;
 		GM.ActiveMenu = MenuTypes.MENU_MAIN;
-		GM.scene_level1 = scene_level1;
 	}
 
 	void OnGUI(){

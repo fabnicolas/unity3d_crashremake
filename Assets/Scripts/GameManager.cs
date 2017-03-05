@@ -41,7 +41,8 @@ public class GameManager
     public Settings m_Settings;     // Singleton object for managing settings.
     public bool IsShownMainMenu;
     public SceneList active_scene;  // Estabilishes which active scene is currently on quickly.
-	public string scene_level1;
+	public ThreadsafeDictionary<SceneList,string> scenes_strings;
+    public SceneList scene_in_loading_stage;
 
 
     private GUIStyle gui_style;     // GUI graphical properties.
@@ -84,6 +85,9 @@ public class GameManager
             PauseMenu,
             GameOverMenu
         };
+        scenes_strings = new ThreadsafeDictionary<SceneList,string>()
+            .AddChain(SceneList.MENU, "scene_preload")
+            .AddChain(SceneList.LEVEL1, "scene1");
         m_Settings = Settings.getInstance(); // Initialize settings object if not present and save reference to it.
 
         Debug.Log("GameManager in creazione...");
@@ -103,9 +107,8 @@ public class GameManager
             Debug.Log("Start game calling...");
 
             //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), blackbg);
-            SceneManager.LoadScene(this.scene_level1);
-
-            Debug.Log("Start game called!");
+            SceneManager.LoadScene(this.scenes_strings.Get(SceneList.LEVEL1));
+            SceneManager.sceneLoaded += OnLoadSceneCallback;
         }
 
         if (GUILayout.Button("Options"))
@@ -123,6 +126,7 @@ public class GameManager
             }
         }
     }
+
     private void OptionsMenu(int id)
     {
         GUILayout.BeginHorizontal();
@@ -149,8 +153,6 @@ public class GameManager
             //m_SoundSource.PlayOneShot(ClickSound); // *click* sound
             ActiveMenu = MenuTypes.MENU_MAIN; // "Back" button returns from this menu to MainMenu
         }
-
-
     }
     private void PauseMenu(int id) { }
     private void GameOverMenu(int id) { }
@@ -163,7 +165,7 @@ public class GameManager
         {
             //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
             string str_highscore = "Highscore: " + m_Settings.HighScore;
-            Vector2 highscoreTextDim = getPreferredLabelSize(str_highscore);
+            Vector2 highscoreTextDim = GUIHelper.getPreferredLabelSize(str_highscore);
             GUI.Label(new Rect(Screen.width - highscoreTextDim.x, 0, highscoreTextDim.x, 100), str_highscore);
 
             Rect windowRect = new Rect(
@@ -181,14 +183,14 @@ public class GameManager
         }
         else if (active_scene == SceneList.LEVEL1)
         {
-            GUI.Label(new Rect(50, 20, 50, 50), "TEST", gui_style);
+            GUI.Label(new Rect(100, Screen.height-20, 100, 100), "SAMPLE TEXT", gui_style);
         }
     }
 
-    private Vector2 getPreferredLabelSize(string str)
+   void OnLoadSceneCallback(Scene scene, LoadSceneMode sceneMode)
     {
-        return GUI.skin.label.CalcSize(new GUIContent(str));
+        Debug.Log("Start game called!");
+        active_scene = SceneList.LEVEL1;
     }
-
 
 }
