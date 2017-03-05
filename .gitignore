@@ -35,3 +35,7 @@ sysinfo.txt
 # Exclude unwanted files in nopublish directories
 __nopublish/
 __nopublish.meta
+
+# Exclude "Viscera" Unity3D plugin
+Viscera/
+Viscera.meta
