@@ -47,4 +47,15 @@ public class GameManagerKeeper : MonoBehaviour {
 		if(GM!=null) GM.call_onGUI();
 	}
 
+	/// <summary>
+	/// Update is called every frame, if the MonoBehaviour is enabled.
+	/// </summary>
+	void Update()
+	{
+		if(Input.GetButtonDown("Info")){
+			StartCoroutine(GM.showGUIExtra());
+		}
+			//GM.toggleGUI = !GM.toggleGUI;
+	}
+
 }

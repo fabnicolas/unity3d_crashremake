@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 // Enum for scenes allowed in the project to be managed.
 public enum SceneList : byte
@@ -60,6 +61,7 @@ public class GameManager
     public MenuTypes ActiveMenu { get; set; }
     public bool IsMenuActive { get; set; }
     public readonly GUI.WindowFunction[] MenuFunctions;
+    public bool toggleGUI;
 
     /*
 	public void setMusic(AudioClip ac){
@@ -77,6 +79,8 @@ public class GameManager
 	}
 	*/
 
+    private int GUI_slide_factor;
+
     // GameManager constructor.
     public GameManager()
     {
@@ -90,6 +94,8 @@ public class GameManager
             .chained_Add(SceneList.MENU, "scene_preload")
             .chained_Add(SceneList.LEVEL1, "scene1");
         m_Settings = Settings.getInstance(); // Initialize settings object if not present and save reference to it.
+        toggleGUI = true;
+        GUI_slide_factor = -100;
 
         Debug.Log("GameManager in creazione...");
         //Application.runInBackground = true;	// Application can run in background.
@@ -184,8 +190,10 @@ public class GameManager
         }
         else if (active_scene == SceneList.LEVEL1)
         {
-            GUI.DrawTexture(new Rect(20, 10, 60, 60), textures.Get("texture_wumpa"));
-            GUI.Label(new Rect(100, Screen.height - 20, 100, 100), "SAMPLE TEXT", gui_style);
+            if(toggleGUI){
+                GUI.DrawTexture(new Rect(20, 20+GUI_slide_factor, 60, 60), textures.Get("texture_wumpa"));
+                GUI.Label(new Rect(100, Screen.height - 20, 100, 100), "SAMPLE TEXT", gui_style);
+            }
         }
     }
 
@@ -198,4 +206,26 @@ public class GameManager
         active_scene = SceneList.LEVEL1;
     }
 
+    public IEnumerator showGUIExtra(){
+        float weight = 1;
+        float animationDuration = 0.4f;
+        GUI_slide_factor = -100;
+        
+        while(weight > 0){
+            weight -= Time.deltaTime / animationDuration;
+            GUI_slide_factor = -(int)Mathf.Lerp(0, 100, weight);
+            Debug.Log(GUI_slide_factor);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        weight = 1;
+        while(weight > 0){
+            weight -= Time.deltaTime / animationDuration;
+            GUI_slide_factor = -(int)Mathf.Lerp(100, 0, weight);
+            Debug.Log(GUI_slide_factor);
+            yield return null;
+        }
+    }
 }
