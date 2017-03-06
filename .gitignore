@@ -39,3 +39,6 @@ __nopublish.meta
 # Exclude "Viscera" Unity3D plugin
 Viscera/
 Viscera.meta
+
+# Exclude vscode files
+.vscode/
