@@ -41,9 +41,9 @@ public class GameManager
     public Settings m_Settings;     // Singleton object for managing settings.
     public bool IsShownMainMenu;
     public SceneList active_scene;  // Estabilishes which active scene is currently on quickly.
-	public ThreadsafeDictionary<SceneList,string> scenes_strings;
+    public ThreadsafeDictionary<SceneList, string> scenes_strings;
     public SceneList scene_in_loading_stage;
-    public ThreadsafeDictionary<string,Texture> textures;
+    public ThreadsafeDictionary<string, Texture> textures;
 
 
     private GUIStyle gui_style;     // GUI graphical properties.
@@ -77,7 +77,7 @@ public class GameManager
 	}
 	*/
 
-	// GameManager constructor.
+    // GameManager constructor.
     public GameManager()
     {
         MenuFunctions = new GUI.WindowFunction[] {
@@ -86,7 +86,7 @@ public class GameManager
             PauseMenu,
             GameOverMenu
         };
-        scenes_strings = new ThreadsafeDictionary<SceneList,string>()
+        scenes_strings = new ThreadsafeDictionary<SceneList, string>()
             .chained_Add(SceneList.MENU, "scene_preload")
             .chained_Add(SceneList.LEVEL1, "scene1");
         m_Settings = Settings.getInstance(); // Initialize settings object if not present and save reference to it.
@@ -98,7 +98,7 @@ public class GameManager
         Debug.Log("GameManager creato");
     }
 
-	// Main Menu constructor.
+    // Main Menu constructor.
     private void MainMenu(int id)
     {
         GUILayout.Label("Test");
@@ -161,7 +161,7 @@ public class GameManager
     const int Width = 300, Height = 100;
     public void call_onGUI()
     {
-		
+
         if (active_scene == SceneList.MENU)
         {
             //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
@@ -184,12 +184,15 @@ public class GameManager
         }
         else if (active_scene == SceneList.LEVEL1)
         {
-            GUIHelper.drawTextureFullSize(new Vector2(0,0), textures.Get("texture_wumpa"));
-            GUI.Label(new Rect(100, Screen.height-20, 100, 100), "SAMPLE TEXT", gui_style);
+            GUI.DrawTexture(new Rect(20, 10, 60, 60), textures.Get("texture_wumpa"));
+            GUI.Label(new Rect(100, Screen.height - 20, 100, 100), "SAMPLE TEXT", gui_style);
         }
     }
 
-   void OnLoadSceneCallback(Scene scene, LoadSceneMode sceneMode)
+    /*
+        Callback used when next scene is fully loaded.
+     */
+    void OnLoadSceneCallback(Scene scene, LoadSceneMode sceneMode)
     {
         Debug.Log("Start game called!");
         active_scene = SceneList.LEVEL1;

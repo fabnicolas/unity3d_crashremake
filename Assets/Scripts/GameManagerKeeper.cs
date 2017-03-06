@@ -34,12 +34,13 @@ public class GameManagerKeeper : MonoBehaviour {
 		GM.m_MusicSource.Play ();
 		*/
 
-		ThreadsafeDictionary<string,Texture> a = new ThreadsafeDictionary<string,Texture>();
-		foreach(int i in texture_list){
-
+		ThreadsafeDictionary<string,Texture> new_textures_dictionary = new ThreadsafeDictionary<string,Texture>();
+		foreach(TextureField texture_data in texture_list){
+			new_textures_dictionary.Add(texture_data.key, texture_data.value);
 		}
 		GM.active_scene = SceneList.MENU;
 		GM.ActiveMenu = MenuTypes.MENU_MAIN;
+		GM.textures = new_textures_dictionary;
 	}
 
 	void OnGUI(){
