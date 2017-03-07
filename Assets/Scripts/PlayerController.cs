@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             transform.position += ((movement_vector = movement_vector * Time.deltaTime));  // Make movement and reduce movement_vector on deltaTime.
             this.changeRotation(rotation_angle); // Make angle-based rotation.
 
-            yield return CoRoutineWaitBuilder.getInstance().m_WaitForFixedUpdate;   // Wait for next frame elaboration.
+            yield return CoroutineHelper.getInstance().m_WaitForFixedUpdate;   // Wait for next frame elaboration.
         }
 
         // Notify animator that the character stopped moving.

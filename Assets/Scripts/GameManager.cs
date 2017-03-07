@@ -206,26 +206,20 @@ public class GameManager
         active_scene = SceneList.LEVEL1;
     }
 
-    public IEnumerator showGUIExtra(){
-        float weight = 1;
-        float animationDuration = 0.4f;
-        GUI_slide_factor = -100;
-        
-        while(weight > 0){
-            weight -= Time.deltaTime / animationDuration;
-            GUI_slide_factor = -(int)Mathf.Lerp(0, 100, weight);
-            Debug.Log(GUI_slide_factor);
-            yield return null;
-        }
+    public IEnumerator showGUIExtra(MonoBehaviour caller){
+        GUI_slide_factor=-100;
+        yield return caller.StartCoroutine(
+            CoroutineHelper.executeInTime(0.4f, (float w)=>{
+                GUI_slide_factor = -(int)Mathf.Lerp(0,100,w);
+            })
+        );
 
         yield return new WaitForSeconds(1f);
 
-        weight = 1;
-        while(weight > 0){
-            weight -= Time.deltaTime / animationDuration;
-            GUI_slide_factor = -(int)Mathf.Lerp(100, 0, weight);
-            Debug.Log(GUI_slide_factor);
-            yield return null;
-        }
+        yield return caller.StartCoroutine(
+            CoroutineHelper.executeInTime(0.4f, (float w)=>{
+                GUI_slide_factor = -(int)Mathf.Lerp(100,0,w);
+            })
+        );
     }
 }

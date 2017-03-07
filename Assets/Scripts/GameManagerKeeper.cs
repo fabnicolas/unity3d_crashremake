@@ -53,7 +53,7 @@ public class GameManagerKeeper : MonoBehaviour {
 	void Update()
 	{
 		if(Input.GetButtonDown("Info")){
-			StartCoroutine(GM.showGUIExtra());
+			StartCoroutine(GM.showGUIExtra(this));
 		}
 			//GM.toggleGUI = !GM.toggleGUI;
 	}
