@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 using System.Collections;
 
 // Enum for scenes allowed in the project to be managed.
@@ -192,6 +193,7 @@ public class GameManager
         {
             if(toggleGUI){
                 GUI.DrawTexture(new Rect(20, 20+GUI_slide_factor, 60, 60), textures.Get("texture_wumpa"));
+                GUI.DrawTexture(new Rect(200, 20+GUI_slide_factor, 60, 60), textures.Get("texture_crate"));
                 GUI.Label(new Rect(100, Screen.height - 20, 100, 100), "SAMPLE TEXT", gui_style);
             }
         }
@@ -214,7 +216,9 @@ public class GameManager
 
         In this particular case, GUI_slide_factor is used inside the GameManager to determine the position of the textures on Y axis.
      */
-    public IEnumerator showGUIExtra(MonoBehaviour caller){
+    public IEnumerator showGUIExtra(MonoBehaviour caller, Action<bool> callback_onCoroutineStatusChanged){
+        callback_onCoroutineStatusChanged(true);
+
         GUI_slide_factor=-100;  // Initial position.
         int initial_value=GUI_slide_factor;
         // We call a coroutine for scrolling from -100 to 0 in 0.4 secs.
@@ -232,5 +236,7 @@ public class GameManager
                 GUI_slide_factor=-(int)Mathf.Lerp(0,100,w);  // GUI_slide_factor will decrease from 0 to -100. Initial_value is already 0, so it won't count.
             })
         );
+
+        callback_onCoroutineStatusChanged(false);
     }
 }
