@@ -10,6 +10,8 @@ public class GameManagerKeeper : MonoBehaviour
     [SerializeField]
     public TextureField[] texture_list;
 
+	public Font rendering_font;
+
     /*public AudioClip MusicSound,ClickSound;
 	public Texture background,blackbg;
 	public Font rendering_font;*/
@@ -41,9 +43,10 @@ public class GameManagerKeeper : MonoBehaviour
         {
             new_textures_dictionary.Add(texture_data.key, texture_data.value);
         }
-        GM.active_scene = SceneList.MENU;
-        GM.ActiveMenu = MenuTypes.MENU_MAIN;
-        GM.textures = new_textures_dictionary;
+		GM.setActiveScene(SceneType.MENU);
+		GM.setActiveMenu(MenuType.MENU_MAIN);
+		GM.setTextures(new_textures_dictionary);
+		GM.setRenderingFont(rendering_font);
     }
 
     void OnGUI()

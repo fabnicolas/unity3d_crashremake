@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 
 // Enum for scenes allowed in the project to be managed.
-public enum SceneList : byte
+public enum SceneType : byte
 {
     LOADING = 0,    // Loading scene used for level scenes preloading, not yet implemented.
     MENU = 1,       // Main menu scene, before playing the game.
@@ -12,7 +12,7 @@ public enum SceneList : byte
 }
 
 // Enum for types of menu inside menu transictions. Should be refactored in a tree gerarchy (maybe?).
-public enum MenuTypes : byte
+public enum MenuType : byte
 {
     MENU_MAIN = 0,
     MENU_OPTIONS = 1,
@@ -42,10 +42,10 @@ public class GameManager
     //public AudioSource m_MusicSource, m_SoundSource;
     public Settings m_Settings;     // Singleton object for managing settings.
     public bool IsShownMainMenu;
-    public SceneList active_scene;  // Estabilishes which active scene is currently on quickly.
-    public ThreadsafeDictionary<SceneList, string> scenes_strings;
-    public SceneList scene_in_loading_stage;
-    public ThreadsafeDictionary<string, Texture> textures;
+    private SceneType active_scene;  // Estabilishes which active scene is currently on quickly.
+    private ThreadsafeDictionary<SceneType, string> scenes_strings;
+    private SceneType scene_in_loading_stage;
+    private ThreadsafeDictionary<string, Texture> textures;
 
 
     private GUIStyle gui_style;     // GUI graphical properties.
@@ -59,7 +59,7 @@ public class GameManager
 		"Game Over Menu"	// LAYER 2.
 	};
 
-    public MenuTypes ActiveMenu { get; set; }
+    public MenuType active_menu { get; set; }
     public bool IsMenuActive { get; set; }
     public readonly GUI.WindowFunction[] MenuFunctions;
     public bool toggleGUI;
@@ -91,18 +91,30 @@ public class GameManager
             PauseMenu,
             GameOverMenu
         };
-        scenes_strings = new ThreadsafeDictionary<SceneList, string>()
-            .chained_Add(SceneList.MENU, "scene_preload")
-            .chained_Add(SceneList.LEVEL1, "scene1");
+        scenes_strings = new ThreadsafeDictionary<SceneType, string>()
+            .chained_Add(SceneType.MENU, "scene_preload")
+            .chained_Add(SceneType.LEVEL1, "scene1");
         m_Settings = Settings.getInstance(); // Initialize settings object if not present and save reference to it.
         toggleGUI = true;
         GUI_slide_factor = -100;
+        gui_style = new GUIStyle();
+    }
 
-        Debug.Log("GameManager in creazione...");
-        //Application.runInBackground = true;	// Application can run in background.
-        gui_style = new GUIStyle();         // Initialize an empty GUIStyle.
-        gui_style.font = rendering_font;    // Set font taken from inspector to the gui_style object.
-        Debug.Log("GameManager creato");
+    public void setActiveScene(SceneType new_active_scene){
+        this.active_scene = new_active_scene;
+    }
+
+    public void setActiveMenu(MenuType new_active_menu){
+        this.active_menu = new_active_menu;
+    }
+
+    public void setTextures(ThreadsafeDictionary<string, Texture> new_textures_dictionary){
+        this.textures = new_textures_dictionary;
+    }
+
+    public void setRenderingFont(Font new_rendering_font){
+        this.rendering_font = new_rendering_font;
+        gui_style.font = this.rendering_font;
     }
 
     // Main Menu constructor.
@@ -111,18 +123,18 @@ public class GameManager
         GUILayout.Label("Test");
         if (GUILayout.Button("Start Game"))
         {
-            active_scene = SceneList.LOADING;
+            active_scene = SceneType.LOADING;
             Debug.Log("Start game calling...");
 
             //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), blackbg);
-            SceneManager.LoadScene(this.scenes_strings.Get(SceneList.LEVEL1));
-            SceneManager.sceneLoaded += OnLoadSceneCallback;
+            SceneManager.LoadScene(this.scenes_strings.Get(SceneType.LEVEL1));
+            SceneManager.sceneLoaded += callback_onLoadScene;
         }
 
         if (GUILayout.Button("Options"))
         {
             //m_SoundSource.PlayOneShot(ClickSound);
-            ActiveMenu = MenuTypes.MENU_OPTIONS;
+            active_menu = MenuType.MENU_OPTIONS;
             // Code for options
         }
 
@@ -159,7 +171,7 @@ public class GameManager
         {
             m_Settings.Save(); // Save settings
             //m_SoundSource.PlayOneShot(ClickSound); // *click* sound
-            ActiveMenu = MenuTypes.MENU_MAIN; // "Back" button returns from this menu to MainMenu
+            active_menu = MenuType.MENU_MAIN; // "Back" button returns from this menu to MainMenu
         }
     }
     private void PauseMenu(int id) { }
@@ -169,7 +181,7 @@ public class GameManager
     public void call_onGUI()
     {
 
-        if (active_scene == SceneList.MENU)
+        if (active_scene == SceneType.MENU)
         {
             //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
             string str_highscore = "Highscore: " + m_Settings.HighScore;
@@ -182,19 +194,19 @@ public class GameManager
                                   Width,
                                   Height
                               );
-            GUILayout.Window(0, windowRect, MenuFunctions[(byte)ActiveMenu], MenuNames[(byte)ActiveMenu]);
+            GUILayout.Window(0, windowRect, MenuFunctions[(byte)active_menu], MenuNames[(byte)active_menu]);
             //GUI.Label (new Rect (0, 0, 100, 100), "It's working! Lol");
         }
-        else if (active_scene == SceneList.LOADING)
+        else if (active_scene == SceneType.LOADING)
         {
             //GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), blackbg);
         }
-        else if (active_scene == SceneList.LEVEL1)
+        else if (active_scene == SceneType.LEVEL1)
         {
             if(toggleGUI){
                 GUI.DrawTexture(new Rect(20, 20+GUI_slide_factor, 60, 60), textures.Get("texture_wumpa"));
                 GUI.DrawTexture(new Rect(200, 20+GUI_slide_factor, 60, 60), textures.Get("texture_crate"));
-                GUI.Label(new Rect(100, Screen.height - 20, 100, 100), "SAMPLE TEXT", gui_style);
+                GUI.Label(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", gui_style);
             }
         }
     }
@@ -202,10 +214,10 @@ public class GameManager
     /*
         Callback used when next scene is fully loaded.
      */
-    void OnLoadSceneCallback(Scene scene, LoadSceneMode sceneMode)
+    void callback_onLoadScene(Scene scene, LoadSceneMode sceneMode)
     {
         Debug.Log("Start game called!");
-        active_scene = SceneList.LEVEL1;
+        active_scene = SceneType.LEVEL1;
     }
 
     /*
