@@ -46,9 +46,6 @@ public class GameManager
     private ThreadsafeDictionary<SceneType, string> scenes_strings;
     private SceneType scene_in_loading_stage;
     private ThreadsafeDictionary<string, Texture> textures;
-
-
-    private GUIStyle gui_style;     // GUI graphical properties.
     public Font rendering_font;     // Rendering font for GUI operations.
 
     // Note that this array matches enum values inside MenuTypes thanks by using same indexes, be careful.
@@ -80,7 +77,7 @@ public class GameManager
 	}
 	*/
 
-    private int GUI_slide_factor;
+    private int GUI_infobar_var_slide_factor;
 
     // GameManager constructor.
     public GameManager()
@@ -96,8 +93,8 @@ public class GameManager
             .chained_Add(SceneType.LEVEL1, "scene1");
         m_Settings = Settings.getInstance(); // Initialize settings object if not present and save reference to it.
         toggleGUI = true;
-        GUI_slide_factor = -100;
-        gui_style = new GUIStyle();
+        GUI_infobar_var_slide_factor = -100;
+        GUIHelper.setGUIStyle("GUI_infobar_label",new GUIStyle());
     }
 
     public void setActiveScene(SceneType new_active_scene){
@@ -114,7 +111,7 @@ public class GameManager
 
     public void setRenderingFont(Font new_rendering_font){
         this.rendering_font = new_rendering_font;
-        gui_style.font = this.rendering_font;
+        GUIHelper.getGUIStyle("GUI_infobar_label").font = this.rendering_font;
     }
 
     // Main Menu constructor.
@@ -204,9 +201,9 @@ public class GameManager
         else if (active_scene == SceneType.LEVEL1)
         {
             if(toggleGUI){
-                GUI.DrawTexture(new Rect(20, 20+GUI_slide_factor, 60, 60), textures.Get("texture_wumpa"));
-                GUI.DrawTexture(new Rect(200, 20+GUI_slide_factor, 60, 60), textures.Get("texture_crate"));
-                GUI.Label(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", gui_style);
+                GUI.DrawTexture(new Rect(20, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_wumpa"));
+                GUI.DrawTexture(new Rect(200, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_crate"));
+                GUIHelper.drawLabel(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", "GUI_infobar_label", 32);
             }
         }
     }
@@ -231,12 +228,12 @@ public class GameManager
     public IEnumerator showGUIExtra(MonoBehaviour caller, Action<bool> callback_onCoroutineStatusChanged){
         callback_onCoroutineStatusChanged(true);
 
-        GUI_slide_factor=-100;  // Initial position.
-        int initial_value=GUI_slide_factor;
+        GUI_infobar_var_slide_factor=-100;  // Initial position.
+        int initial_value=GUI_infobar_var_slide_factor;
         // We call a coroutine for scrolling from -100 to 0 in 0.4 secs.
         yield return caller.StartCoroutine(
             CoroutineHelper.executeInTime(0.4f, (float w)=>{
-                GUI_slide_factor=initial_value+(int)Mathf.Lerp(0,100,w);    // GUI_slide_factor will increase from -100 to 0.
+                GUI_infobar_var_slide_factor=initial_value+(int)Mathf.Lerp(0,100,w);    // GUI_slide_factor will increase from -100 to 0.
             })
         );
         // Wait 2 seconds, enough to make user show the menu. It's not really framerate-indipendent, but that doesn't matter.
@@ -245,7 +242,7 @@ public class GameManager
         // We call a coroutine from scrolling to the reached value.
         yield return caller.StartCoroutine(
             CoroutineHelper.executeInTime(0.4f, (float w)=>{
-                GUI_slide_factor=-(int)Mathf.Lerp(0,100,w);  // GUI_slide_factor will decrease from 0 to -100. Initial_value is already 0, so it won't count.
+                GUI_infobar_var_slide_factor=-(int)Mathf.Lerp(0,100,w);  // GUI_slide_factor will decrease from 0 to -100. Initial_value is already 0, so it won't count.
             })
         );
 

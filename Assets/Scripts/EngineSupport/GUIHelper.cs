@@ -5,6 +5,8 @@ using UnityEngine;
  */
 public class GUIHelper{
     // Calculates the necessary size for inserting a string inside the GUI.
+    private static ThreadsafeDictionary<string,GUIStyle> gui_styles = new ThreadsafeDictionary<string,GUIStyle>();
+
     public static Vector2 getPreferredLabelSize(string str)
     {
         return GUI.skin.label.CalcSize(new GUIContent(str));
@@ -20,6 +22,31 @@ public class GUIHelper{
 
     public static void drawTextureDyn(Rect render_data, Texture texture){
         GUI.DrawTexture(GUIHelper.ResizeGUI(render_data), texture);
+    }
+
+    public static void setGUIStyle(string key, GUIStyle gui_style, bool force_rewrite = false){
+        gui_styles.Add(key, gui_style, force_rewrite);
+    }
+
+    public static GUIStyle getGUIStyle(string key){
+        return gui_styles.Get(key);
+    }
+
+    public static void drawLabel(Rect render_data, string text, string style=null, int fontSize = -1){
+        GUIStyle guistyle;
+        if(style!=null) guistyle = gui_styles.Get(style);
+        else            guistyle = null;
+
+        if(fontSize > -1){
+            guistyle = new GUIStyle(guistyle);
+            guistyle.fontSize = fontSize;
+        }
+
+        if(guistyle!=null){
+            GUI.Label(render_data, text, guistyle);
+        }else{
+            GUI.Label(render_data, text);
+        }
     }
 
     /*
