@@ -63,6 +63,7 @@ public class GameManager
 
     private int fps;
 
+    private int wumpa_counter=11,box_counter=23;
     /*
 	public void setMusic(AudioClip ac){
 		if(m_MusicSource != null)
@@ -203,11 +204,13 @@ public class GameManager
         else if (active_scene == SceneType.LEVEL1)
         {
             if(toggleGUI){
-                GUIHelper.drawLabel(new Rect(Screen.width-70, 0, 20, 20), "FPS: "+fps, Color.white, null, 15);
-                GUI.DrawTexture(new Rect(20, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_wumpa"));
-                GUI.DrawTexture(new Rect(200, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_crate"));
-                GUIHelper.drawLabel(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", Color.white, "GUI_infobar_label", 32);
-                GUIHelper.drawLabel(new Rect(100, Screen.height - 50, 100, 100), "SAMPLE TEXT", "GUI_infobar_label");
+                GUIHelper.drawLabel(new Rect(Screen.width-70, 0, 20, 20), "FPS: "+fps, Color.white, null, 15);  // Render FPS counter.
+                GUI.DrawTexture(new Rect(20, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_wumpa"));  // Render wumpa.
+                GUIHelper.drawLabel(new Rect(20+60, 40+GUI_infobar_var_slide_factor, 100, 100), wumpa_counter.ToString(), Color.white, "GUI_infobar_label", 32);    // Render wumpa counter.
+                GUI.DrawTexture(new Rect(200, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_crate")); // Render box.
+                GUIHelper.drawLabel(new Rect(200+60, 40+GUI_infobar_var_slide_factor, 100, 100), box_counter.ToString(), Color.white, "GUI_infobar_label", 32);     // Render box counter.
+                GUIHelper.drawLabel(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", Color.white, "GUI_infobar_label", 32); // TODO delete...
+                GUIHelper.drawLabel(new Rect(100, Screen.height - 50, 100, 100), "SAMPLE TEXT", "GUI_infobar_label");   // TODO delete...
             }
         }
     }
