@@ -61,6 +61,8 @@ public class GameManager
     public readonly GUI.WindowFunction[] MenuFunctions;
     public bool toggleGUI;
 
+    private int fps;
+
     /*
 	public void setMusic(AudioClip ac){
 		if(m_MusicSource != null)
@@ -201,9 +203,11 @@ public class GameManager
         else if (active_scene == SceneType.LEVEL1)
         {
             if(toggleGUI){
+                GUIHelper.drawLabel(new Rect(Screen.width-70, 0, 20, 20), "FPS: "+fps, Color.white, null, 15);
                 GUI.DrawTexture(new Rect(20, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_wumpa"));
                 GUI.DrawTexture(new Rect(200, 20+GUI_infobar_var_slide_factor, 60, 60), textures.Get("texture_crate"));
-                GUIHelper.drawLabel(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", "GUI_infobar_label", 32);
+                GUIHelper.drawLabel(new Rect(100, Screen.height - 200, 100, 100), "SAMPLE TEXT", Color.white, "GUI_infobar_label", 32);
+                GUIHelper.drawLabel(new Rect(100, Screen.height - 50, 100, 100), "SAMPLE TEXT", "GUI_infobar_label");
             }
         }
     }
@@ -248,4 +252,17 @@ public class GameManager
 
         callback_onCoroutineStatusChanged(false);
     }
+
+    public IEnumerator showFPS() {
+		while(true){
+			int lastFrameCount = Time.frameCount;
+			float lastTime = Time.realtimeSinceStartup;
+			yield return new WaitForSeconds(1.0f);
+			float timeSpan = Time.realtimeSinceStartup - lastTime;
+			int frameCount = Time.frameCount - lastFrameCount;
+ 
+			// Update it.
+			fps = Mathf.RoundToInt(frameCount / timeSpan);
+		}
+	}
 }

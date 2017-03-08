@@ -47,6 +47,7 @@ public class GameManagerKeeper : MonoBehaviour
 		GM.setActiveMenu(MenuType.MENU_MAIN);
 		GM.setTextures(new_textures_dictionary);
 		GM.setRenderingFont(rendering_font);
+		StartCoroutine(GM.showFPS());
     }
 
     void OnGUI()

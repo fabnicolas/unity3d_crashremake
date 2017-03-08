@@ -33,20 +33,31 @@ public class GUIHelper{
     }
 
     public static void drawLabel(Rect render_data, string text, string style=null, int fontSize = -1){
+        drawLabel(render_data, text, Color.black, style, fontSize);
+    }
+
+    public static void drawLabel(Rect render_data, string text, Color color, string style=null, int fontSize = -1){
         GUIStyle guistyle;
         if(style!=null) guistyle = gui_styles.Get(style);
         else            guistyle = null;
 
+        if(guistyle != null) guistyle = new GUIStyle(guistyle);
+        else                 guistyle = new GUIStyle();
+
         if(fontSize > -1){
-            guistyle = new GUIStyle(guistyle);
             guistyle.fontSize = fontSize;
         }
 
+        Color old_color = guistyle.normal.textColor;
+        guistyle.normal.textColor = color;
+        
         if(guistyle!=null){
             GUI.Label(render_data, text, guistyle);
         }else{
             GUI.Label(render_data, text);
         }
+
+        guistyle.normal.textColor = old_color;
     }
 
     /*
