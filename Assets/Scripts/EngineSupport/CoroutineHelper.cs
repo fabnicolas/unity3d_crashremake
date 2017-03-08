@@ -48,7 +48,7 @@ public class CoroutineHelper
         while (weight > 0)
         {
             weight -= Time.deltaTime / animation_duration;  // Decrease animation weight based on deltaTime/animationTime.
-            callback_onFrameComputationDone(weight); // Callback the weight value.
+            callback_onFrameComputationDone(1-weight); // Callback the weight value.
             // MAYBE TODO: return directly Mathf.Lerp(start_value, end_value, weight) in another func.
             yield return null;
         }

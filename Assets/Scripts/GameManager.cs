@@ -206,19 +206,30 @@ public class GameManager
         active_scene = SceneList.LEVEL1;
     }
 
+    /*
+        This method shows and hides a wumpa fruit in crash-style way (when user presses triangle).
+        The key to call this function is declared inside the Keeper (MonoBehaviour).
+
+        We must pass the caller reference in order to execute coroutines.
+
+        In this particular case, GUI_slide_factor is used inside the GameManager to determine the position of the textures on Y axis.
+     */
     public IEnumerator showGUIExtra(MonoBehaviour caller){
-        GUI_slide_factor=-100;
+        GUI_slide_factor=-100;  // Initial position.
+        int initial_value=GUI_slide_factor;
+        // We call a coroutine for scrolling from -100 to 0 in 0.4 secs.
         yield return caller.StartCoroutine(
             CoroutineHelper.executeInTime(0.4f, (float w)=>{
-                GUI_slide_factor = -(int)Mathf.Lerp(0,100,w);
+                GUI_slide_factor=initial_value+(int)Mathf.Lerp(0,100,w);    // GUI_slide_factor will increase from -100 to 0.
             })
         );
+        // Wait 2 seconds, enough to make user show the menu. It's not really framerate-indipendent, but that doesn't matter.
+        yield return new WaitForSeconds(2f);
 
-        yield return new WaitForSeconds(1f);
-
+        // We call a coroutine from scrolling to the reached value.
         yield return caller.StartCoroutine(
             CoroutineHelper.executeInTime(0.4f, (float w)=>{
-                GUI_slide_factor = -(int)Mathf.Lerp(100,0,w);
+                GUI_slide_factor=-(int)Mathf.Lerp(0,100,w);  // GUI_slide_factor will decrease from 0 to -100. Initial_value is already 0, so it won't count.
             })
         );
     }
